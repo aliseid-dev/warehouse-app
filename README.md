@@ -1,16 +1,53 @@
-# React + Vite
+# Flash Stock Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, React-based web application for managing warehouse inventory, store products, and sales. Built with Vite, Firebase, and React, the app provides a smooth, mobile-first experience with intuitive navigation and real-time updates.
 
-Currently, two official plugins are available:
+Demo: https://aliseid-dev.github.io/warehouse-app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features:
+- Warehouse Management: View, manage, and transfer stock
+- Store Management: View store products and manage inventory
+- Sales Tracking: Record sales, track paid/credit, auto-calculate totals
+- Dashboard: Real-time inventory and sales charts
+- Mobile-Friendly Design: Bottom navigation for easy switching
+- Splash Screen: Animated splash screen on app load
 
-## React Compiler
+Tech Stack:
+- Frontend: React, Vite, CSS
+- Backend / Database: Firebase Firestore
+- Icons & Charts: React Icons, Recharts
+- Deployment: GitHub Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Project Structure:
+flash-stock-manager/
+├─ src/
+│  ├─ components/ (Header, ProductList, BottomNav, MessageBox)
+│  ├─ pages/ (WarehousePage, Store, SalesPage, DashboardPage, SplashScreen)
+│  ├─ styles/ (index.css, WarehousePage.css, Store.css, SalesPage.css, BottomNav.css)
+│  ├─ utils/ (firebase.js)
+│  └─ App.jsx
+├─ package.json
+└─ vite.config.js
 
-## Expanding the ESLint configuration
+Installation:
+1. Clone the repo: git clone git@github.com:aliseid-dev/warehouse-app.git
+2. cd warehouse-app
+3. Install dependencies: npm install
+4. Start dev server: npm run dev
+5. Open at http://localhost:5173
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Deployment:
+- Build: npm run build
+- Deploy: npm run deploy
+- Ensure `homepage` in package.json: "https://aliseid-dev.github.io/warehouse-app"
+
+Configuration:
+- Firebase: Replace src/utils/firebase.js with your Firebase config
+- Firestore collections needed: storeProducts, products, sales
+- Optional: Customize styles in src/styles or add features in components
+
+License:
+MIT License
+
+Author:
+Ali Seid - https://github.com/aliseid-dev
