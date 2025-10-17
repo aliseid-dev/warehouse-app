@@ -1,0 +1,12 @@
+.store-products-list {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.empty-text {
+  text-align: center;
+  color: #777;
+  margin-top: 10px;
+}

@@ -1,0 +1,27 @@
+/* src/styles/DashboardTabs.css */
+.dashboard-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #555;
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+
+.tab-btn:hover { transform: translateY(-2px); }
+
+.tab-btn.active {
+  background: linear-gradient(90deg,#5c3d99,#007bff);
+  color: white;
+  box-shadow: 0 6px 18px rgba(92,61,153,0.12);
+  border: none;
+}

@@ -1,0 +1,45 @@
+.update-stock-container {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.update-stock-container h3 {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.update-stock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.update-stock-form select,
+.update-stock-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.update-stock-form button {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.update-stock-form button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.update-stock-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

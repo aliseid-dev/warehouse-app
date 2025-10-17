@@ -1,0 +1,113 @@
+.warehouse-manage {
+  background: #f9f9fb;
+  min-height: 100vh;
+  
+}
+
+/* Tabs */
+.manage-tabs {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.manage-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  color: #777;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 8px;
+}
+
+.manage-tabs button.active {
+  background: #5c3d99;
+  color: #fff;
+}
+
+/* Card section */
+.manage-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+}
+
+.manage-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.manage-card input,
+.manage-card select {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.manage-card button {
+  background: #5c3d99;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.manage-card button:hover {
+  background: #4a2e7d;
+}
+
+/* History */
+.history-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.history-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f6f9;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.history-item strong {
+  color: #5c3d99;
+}
+
+.history-qty {
+  color: #333;
+  font-weight: 600;
+}
+
+.no-history {
+  color: #777;
+  text-align: center;
+}

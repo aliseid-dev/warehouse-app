@@ -1,0 +1,31 @@
+/* src/styles/Store.css */
+.store-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.store-page header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Content area */
+.store-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background: #f8f9fa;
+}
+
+/* Product & Transfer Sections */
+.store-products,
+.store-transfer {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}

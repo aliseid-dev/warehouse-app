@@ -1,0 +1,25 @@
+/* src/styles/Header.css */
+.app-header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 0 16px; /* horizontal padding only */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 40px;
+  object-fit: contain;
+}
+
+.profile-icon {
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
