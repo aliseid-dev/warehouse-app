@@ -21,6 +21,9 @@ export default function ProductList() {
 
   return (
     <div className="product-table-container">
+      <div className="Warehouse">
+        <h2>Warehouse Products</h2>
+      </div>
       {products.length > 0 ? (
         <table className="sales-table">
           <thead>

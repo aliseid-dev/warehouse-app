@@ -1,12 +1,76 @@
-.store-products-list {
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+/* Container */
+.store-products-container {
+  padding: 1px;
+  background: #f8f9fa;
+  flex: 1;
 }
 
+/* Title */
+.store-products-container h2 {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 18px;
+  background-color: black;
+  color: #ffffff;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+
+/* Table wrapper for horizontal scroll on small screens */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Table styles */
+.store-products-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* Header */
+.store-products-table th {
+  background-color: #eef1f8;
+  color: #333;
+  text-align: left;
+  font-weight: 700;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* Rows */
+.store-products-table td {
+  padding: 10px;
+  border-top: 1px solid #f1f1f1;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Row hover (desktop only) */
+@media (hover: hover) {
+  .store-products-table tr:hover {
+    background-color: #fafbff;
+  }
+}
+
+/* Mobile-first responsiveness */
+@media (max-width: 480px) {
+  .store-products-table th,
+  .store-products-table td {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* Empty text */
 .empty-text {
   text-align: center;
-  color: #777;
-  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+  margin-top: 20px;
 }

@@ -1,12 +1,18 @@
+/* src/styles/ProductList.css */
+
+/* Container */
 .product-list-container {
-  padding: 10px;
-  flex: 1;
+  padding: 12px;
+  box-sizing: border-box;
+  background: transparent;
 }
 
+/* Title */
 .product-list-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #222;
+  text-align: left;
 }
 
 /* Table-like layout */
@@ -19,26 +25,72 @@
 /* Header row */
 .product-row.header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: 700;
   padding: 10px;
-  background-color: #e9ecef;
-  border-radius: 5px;
+  background-color: #eef1f8;
+  border-radius: 8px;
+  color: #333;
+  font-size: 14px;
 }
 
+/* Data row */
 .product-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(16, 24, 40, 0.04);
+  font-size: 14px;
 }
 
-/* Mobile-first: each row is column on very small screens */
-@media (max-width: 400px) {
+/* Row items - make consistent spacing */
+.product-row > div {
+  flex: 1 1 0;
+  min-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Adjust columns: name larger */
+.product-row > div:first-child {
+  flex: 2 1 0;
+  padding-right: 8px;
+}
+
+/* price and quantity narrower */
+.product-row > div:nth-child(2),
+.product-row > div:nth-child(3) {
+  flex: 1 1 0;
+  text-align: right;
+  padding-left: 8px;
+}
+
+/* Empty text */
+.empty-text {
+  margin: 10px 0;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Responsive: stack on very small screens */
+@media (max-width: 420px) {
   .product-row, .product-row.header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 6px;
+  }
+  .product-row > div,
+  .product-row.header > div {
+    text-align: left;
+  }
+  .product-row > div:nth-child(2),
+  .product-row > div:nth-child(3) {
+    padding-left: 0;
   }
 }

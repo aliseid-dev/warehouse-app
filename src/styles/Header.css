@@ -1,13 +1,13 @@
 /* src/styles/Header.css */
 .app-header {
-  width: 100%;
+  width:92%;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #fff;
   border-bottom: 1px solid #ddd;
-  padding: 0 16px; /* horizontal padding only */
+  padding: 5px 16px; /* horizontal padding only */
   position: sticky;
   top: 0;
   z-index: 1000;

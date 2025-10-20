@@ -1,4 +1,3 @@
-// src/components/StoreProducts.jsx
 import React, { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -19,26 +18,32 @@ const StoreProducts = () => {
   }, []);
 
   return (
-    <div className="store-products-list">
-      <div className="product-table">
-        <div className="product-row header">
-          <div>Name</div>
-          <div>Price</div>
-          <div>Quantity</div>
+    <div className="store-products-container">
+      <h2>Store Products</h2>
+      {products.length > 0 ? (
+        <div className="table-wrapper">
+          <table className="store-products-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price ($)</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((p) => (
+                <tr key={p.id}>
+                  <td>{p.name}</td>
+                  <td>{p.price}</td>
+                  <td>{p.quantity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-
-        {products.length > 0 ? (
-          products.map((p) => (
-            <div key={p.id} className="product-row">
-              <div>{p.name}</div>
-              <div>${p.price}</div>
-              <div>{p.quantity}</div>
-            </div>
-          ))
-        ) : (
-          <p className="empty-text">No products in store yet.</p>
-        )}
-      </div>
+      ) : (
+        <p className="empty-text">No products in store yet.</p>
+      )}
     </div>
   );
 };
