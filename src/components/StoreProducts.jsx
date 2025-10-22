@@ -32,10 +32,19 @@ const StoreProducts = () => {
             </thead>
             <tbody>
               {products.map((p) => (
-                <tr key={p.id}>
+                <tr
+                  key={p.id}
+                  className={p.quantity === 0 ? "out-of-stock" : ""}
+                >
                   <td>{p.name}</td>
                   <td>{p.price}</td>
-                  <td>{p.quantity}</td>
+                  <td>
+                    {p.quantity === 0 ? (
+                      <span className="out-of-stock-label">Out of stock</span>
+                    ) : (
+                      p.quantity
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>

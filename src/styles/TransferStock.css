@@ -1,17 +1,29 @@
-/* src/styles/TransferStock.css */
-
 .transfer-stock-page {
-  margin: 0;
-  padding: 16px;
   background: #f6f7fb;
-  min-height: calc(100vh - 60px); /* leave room for bottom nav */
+  min-height: calc(100vh - 60px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Transfer form */
+/* Message box at top */
+.message-box {
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+.message-box.success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+.message-box.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Form */
 .transfer-form {
   display: flex;
   flex-direction: column;
@@ -40,11 +52,11 @@
   color: #ffffff;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: 0.2s;
 }
 
 .transfer-form button:hover {
-  background-color: #d0d0d0;
+  background-color: #4b2f80;
 }
 
 .transfer-form button:disabled {
@@ -52,13 +64,7 @@
   cursor: not-allowed;
 }
 
-.transfer-form button.active,
-.transfer-form button:active {
-  background-color: #5c3d99;
-  color: #fff;
-}
-
-/* Recent Transfers Section */
+/* Recent Transfers */
 .recent-transfers {
   background: #fff;
   padding: 16px;
@@ -72,15 +78,53 @@
   color: #333;
 }
 
-.transfer-item {
+.transfer-list {
   display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
-  color: #555;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.transfer-item:last-child {
-  border-bottom: none;
+/* Transfer card for mobile */
+.transfer-card {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.transfer-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: #333;
+}
+
+.transfer-date {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.empty-text {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Responsive tweaks */
+@media (min-width: 600px) {
+  .transfer-card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .transfer-date {
+    margin-top: 0;
+    font-size: 13px;
+  }
 }

@@ -10,12 +10,18 @@
   text-align: center;
   margin-bottom: 12px;
   font-size: 18px;
-  background-color: black;
-  color: #ffffff;
-  border: 1px solid black;
-  border-radius: 25px;
+  color: #000000;
+}
+/* Out of stock styling */
+.out-of-stock {
+  opacity: 0.6;
+  background-color: #f9f9f9;
 }
 
+.out-of-stock-label {
+  color: #b00020;
+  font-weight: 600;
+}
 
 /* Table wrapper for horizontal scroll on small screens */
 .table-wrapper {
@@ -23,7 +29,7 @@
   overflow-x: auto;
 }
 
-/* Table styles */
+/* Table styles */ 
 .store-products-table {
   width: 100%;
   border-collapse: collapse;

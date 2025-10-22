@@ -1,4 +1,3 @@
-// src/pages/ProductList.jsx
 import { useState, useEffect } from "react";
 import { db } from "../utils/firebase";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -21,30 +20,39 @@ export default function ProductList() {
 
   return (
     <div className="product-table-container">
-      <div className="Warehouse">
-        <h2>Warehouse Products</h2>
-      </div>
+      <h2>Warehouse Products</h2>
       {products.length > 0 ? (
-        <table className="sales-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((p) => (
-              <tr key={p.id}>
-                <td>{p.name}</td>
-                <td>${p.price}</td>
-                <td>{p.quantity}</td>
+        <div className="table-wrapper">
+          <table className="product-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price ($)</th>
+                <th>Quantity</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {products.map((p) => (
+                <tr
+                  key={p.id}
+                  className={p.quantity === 0 ? "out-of-stock" : ""}
+                >
+                  <td>{p.name}</td>
+                  <td>{p.price}</td>
+                  <td>
+                    {p.quantity === 0 ? (
+                      <span className="out-of-stock-label">Out of stock</span>
+                    ) : (
+                      p.quantity
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <p>No products available</p>
+        <p className="empty-text">No products available.</p>
       )}
     </div>
   );

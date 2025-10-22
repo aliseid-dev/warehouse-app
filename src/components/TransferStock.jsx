@@ -1,4 +1,3 @@
-// src/components/TransferStock.jsx
 import { useState, useEffect } from "react";
 import { db } from "../utils/firebase";
 import {
@@ -27,7 +26,9 @@ export default function TransferStock() {
   // Fetch warehouse products for dropdown
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "products"), (snapshot) => {
-      const items = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const items = snapshot.docs
+        .map((doc) => ({ id: doc.id, ...doc.data() }))
+        .filter((item) => item.quantity > 0); // ✅ Hide products with 0 qty
       setProducts(items);
     });
     return () => unsubscribe();
@@ -49,8 +50,12 @@ export default function TransferStock() {
   const handleTransfer = async (e) => {
     e.preventDefault();
     const qty = Number(quantity);
+
     if (!selectedProduct || isNaN(qty) || qty <= 0) {
-      setMessage({ type: "error", text: "Please select a product and enter a valid quantity" });
+      setMessage({
+        type: "error",
+        text: "Please select a product and enter a valid quantity",
+      });
       return;
     }
 
@@ -78,7 +83,7 @@ export default function TransferStock() {
       // Decrease warehouse stock
       await updateDoc(productRef, { quantity: product.quantity - qty });
 
-      // Add or update in storeProducts
+      // Add/update in storeProducts
       const storeRef = doc(db, "storeProducts", selectedProduct);
       const storeSnap = await getDoc(storeRef);
       const storeQuantity = storeSnap.exists() ? storeSnap.data().quantity : 0;
@@ -115,10 +120,21 @@ export default function TransferStock() {
 
   return (
     <div className="transfer-stock-page">
-      {message && <MessageBox message={message.text} type={message.type} onClose={() => setMessage(null)} />}
+      {/* ✅ Message box always visible */}
+      {message && (
+        <MessageBox
+          message={message.text}
+          type={message.type}
+          onClose={() => setMessage(null)}
+        />
+      )}
 
+      {/* Transfer Form */}
       <form className="transfer-form" onSubmit={handleTransfer}>
-        <select value={selectedProduct} onChange={(e) => setSelectedProduct(e.target.value)}>
+        <select
+          value={selectedProduct}
+          onChange={(e) => setSelectedProduct(e.target.value)}
+        >
           <option value="">Select Warehouse Product</option>
           {products.map((p) => (
             <option key={p.id} value={p.id}>
@@ -139,20 +155,27 @@ export default function TransferStock() {
         </button>
       </form>
 
-      {/* Recent Transfers */}
+      {/* ✅ Recent Transfers — mobile-friendly cards */}
       <div className="recent-transfers">
         <h3>Recent Transfers</h3>
         {recentTransfers.length > 0 ? (
-          recentTransfers.map((t, i) => (
-            <div className="transfer-item" key={i}>
-              <div>
-                <strong>{t.productName}</strong> - Qty: {t.quantity}
+          <div className="transfer-list">
+            {recentTransfers.map((t, i) => (
+              <div className="transfer-card" key={i}>
+                <div className="transfer-info">
+                  <strong>{t.productName}</strong>
+                  <span>Qty: {t.quantity}</span>
+                </div>
+                <div className="transfer-date">
+                  {t.timestamp?.toDate
+                    ? t.timestamp.toDate().toLocaleString()
+                    : new Date().toLocaleString()}
+                </div>
               </div>
-              <span>{t.timestamp?.toDate ? t.timestamp.toDate().toLocaleString() : new Date().toLocaleString()}</span>
-            </div>
-          ))
+            ))}
+          </div>
         ) : (
-          <p>No recent transfers</p>
+          <p className="empty-text">No recent transfers</p>
         )}
       </div>
     </div>

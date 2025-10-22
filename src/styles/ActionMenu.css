@@ -1,0 +1,39 @@
+/* src/styles/ActionMenu.css */
+
+.action-menu {
+  position: relative;
+}
+
+.action-menu-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.action-menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: 24px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  min-width: 140px;
+}
+
+.action-menu-dropdown button {
+  padding: 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.action-menu-dropdown button:hover {
+  background: #f4f4f4;
+}
