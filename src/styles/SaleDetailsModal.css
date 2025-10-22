@@ -1,0 +1,74 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 0 1rem; /* horizontal padding */
+  box-sizing: border-box; /* include padding in width calculations */
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+.modal-card {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px; /* ensures it won’t overflow */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-family: "Segoe UI", sans-serif;
+  transition: transform 0.2s ease;
+  box-sizing: border-box; /* include padding in width */
+}
+
+.modal-card:hover {
+  transform: translateY(-4px);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal-title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.details-row {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* responsive for very small screens */
+@media (max-width: 400px) {
+  .modal-card {
+    padding: 1.5rem;
+  }
+}

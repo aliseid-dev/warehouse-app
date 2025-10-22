@@ -13,13 +13,6 @@ export default function DashboardTabs({ activeTab, setActiveTab }) {
       </button>
 
       <button
-        className={`tab-btn ${activeTab === "sales" ? "active" : ""}`}
-        onClick={() => setActiveTab("sales")}
-      >
-        Sales
-      </button>
-
-      <button
         className={`tab-btn ${activeTab === "history" ? "active" : ""}`}
         onClick={() => setActiveTab("history")}
       >

@@ -1,0 +1,40 @@
+.history-tab-table {
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.history-tab-table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.history-tab-table th,
+.history-tab-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.history-tab-table th {
+  background: rgb(201, 201, 201);
+  color: #000000;
+  font-weight: 600;
+}
+
+.history-tab-table tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.view-btn {
+  background: #2575fc;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.view-btn:hover {
+  background: #6a11cb;
+}

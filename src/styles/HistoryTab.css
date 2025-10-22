@@ -1,34 +1,122 @@
-/* src/styles/HistoryTab.css */
-.history-tab { padding-top: 6px; }
+.history-tab-container {
+  padding: 0.5rem 1rem;
+  overflow-x: auto;
+  font-family: sans-serif;
+}
 
-.history-list {
+.history-header {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.history-card {
-  background: white;
-  border-radius: 10px;
-  padding: 12px 16px;
+.history-header h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.history-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.history-filters input[type="text"] {
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+/* Date range filters */
+.date-filters {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.history-card .product {
-  font-weight: 700;
-  color: #222;
+.date-filters label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  color: #333;
+  flex: 1;
 }
 
-.history-card .meta {
-  color: #666;
-  font-size: 13px;
-  margin-top: 4px;
+.date-filters input[type="date"] {
+  margin-top: 0.25rem;
+  padding: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.85rem;
 }
 
-.history-card .date {
-  color: #888;
-  font-size: 13px;
+/* Table styling */
+.history-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px; /* smaller table for mobile */
+  font-size: 0.85rem;
+}
+
+.history-table th,
+.history-table td {
+  padding: 0.4rem 0.6rem; /* smaller padding */
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.history-table th {
+  background: rgb(213, 213, 213);
+  color: white;
+  font-size: 0.8rem;
+}
+
+.view-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  background: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #6a11cb;
+}
+
+.no-history {
+  text-align: center;
+  margin-top: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .history-table {
+    font-size: 0.8rem;
+  }
+
+  .history-filters {
+    gap: 0.4rem;
+  }
+
+  .date-filters {
+    flex-direction: column;
+  }
+
+  .date-filters label {
+    width: 100%;
+  }
 }
