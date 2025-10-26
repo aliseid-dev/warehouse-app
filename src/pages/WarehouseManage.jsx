@@ -58,7 +58,7 @@ export default function WarehouseManage() {
 
     setLoading(true);
     try {
-      const newDoc = await addDoc(collection(db, "products"), {
+      await addDoc(collection(db, "products"), {
         name,
         quantity: Number(quantity),
         price: Number(price),
@@ -105,9 +105,7 @@ export default function WarehouseManage() {
       // log history
       await addDoc(collection(db, "warehouse_history"), {
         action:
-          activeTab === "increase"
-            ? "Increased Stock"
-            : "Reduced Stock",
+          activeTab === "increase" ? "Increased Stock" : "Reduced Stock",
         productName: product.name,
         quantity: Number(quantity),
         timestamp: serverTimestamp(),
@@ -125,6 +123,27 @@ export default function WarehouseManage() {
     } catch (err) {
       console.error(err);
       setMessage({ text: "❌ Update failed", type: "error" });
+    }
+    setLoading(false);
+  };
+
+  // edit price (without logging history)
+  const handleEditPrice = async (e) => {
+    e.preventDefault();
+    if (!selectedProduct || !price)
+      return setMessage({ text: "Please select a product and enter a price", type: "error" });
+
+    setLoading(true);
+    try {
+      const productRef = doc(db, "products", selectedProduct);
+      await updateDoc(productRef, { price: Number(price) });
+
+      setMessage({ text: "✅ Price updated successfully", type: "success" });
+      setPrice("");
+      setSelectedProduct("");
+    } catch (err) {
+      console.error(err);
+      setMessage({ text: "❌ Price update failed", type: "error" });
     }
     setLoading(false);
   };
@@ -158,6 +177,12 @@ export default function WarehouseManage() {
           onClick={() => setActiveTab("decrease")}
         >
           Reduce Stock
+        </button>
+        <button
+          className={activeTab === "editPrice" ? "active" : ""}
+          onClick={() => setActiveTab("editPrice")}
+        >
+          Edit Price
         </button>
       </div>
 
@@ -214,6 +239,31 @@ export default function WarehouseManage() {
                 : activeTab === "increase"
                 ? "Increase Stock"
                 : "Reduce Stock"}
+            </button>
+          </form>
+        )}
+
+        {activeTab === "editPrice" && (
+          <form onSubmit={handleEditPrice}>
+            <select
+              value={selectedProduct}
+              onChange={(e) => setSelectedProduct(e.target.value)}
+            >
+              <option value="">Select Product</option>
+              {products.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.name} (Current: {p.price})
+                </option>
+              ))}
+            </select>
+            <input
+              type="number"
+              placeholder="New Price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+            <button type="submit" disabled={loading}>
+              {loading ? "Updating..." : "Update Price"}
             </button>
           </form>
         )}

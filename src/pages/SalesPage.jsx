@@ -354,7 +354,7 @@ export default function SalesPage() {
             />
           )}
 
-          {/* All Sales */}
+         
 <div className="sales-card">
   <h3>📊 Recent Sales</h3>
   {sales.length > 0 ? (
@@ -362,9 +362,9 @@ export default function SalesPage() {
       <table className="sales-table">
         <thead>
           <tr>
-            <th>Name</th>
             <th>Customer</th>
-            <th>Qty</th>
+            <th>Product</th>
+            <th>Quantity</th>
             <th>Total</th>
             <th>Date</th>
           </tr>
@@ -372,24 +372,22 @@ export default function SalesPage() {
         <tbody>
           {sales.slice(0, 6).map((s) => (
             <tr key={s.id}>
-              
-              <td>{s.customerName}</td>
-              <td>{s.quantity}</td>
-              <td>${s.total}</td>
-              <td>{s.paymentStatus}</td>
+              <td>{s.customerName || "—"}</td>
+              <td>{s.productName || "—"}</td>
+              <td>{s.quantity || 0}</td>
+              <td>${s.total?.toFixed(2) || "0.00"}</td>
               <td>
-  {s.timestamp?.seconds
-    ? new Date(s.timestamp.seconds * 1000).toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      })
-    : new Date().toLocaleDateString("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      })}
-</td>
+                {s.timestamp?.seconds
+                  ? new Date(s.timestamp.seconds * 1000).toLocaleDateString(
+                      "en-GB",
+                      {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      }
+                    )
+                  : "-"}
+              </td>
             </tr>
           ))}
         </tbody>

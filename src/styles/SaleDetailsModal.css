@@ -65,6 +65,21 @@
   font-weight: 500;
   font-size: 0.95rem;
 }
+.delete-btn {
+  margin-top: 20px;
+  padding: 10px 14px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
 
 /* responsive for very small screens */
 @media (max-width: 400px) {
