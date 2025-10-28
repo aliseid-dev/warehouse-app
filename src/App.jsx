@@ -6,7 +6,6 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import ProfilePage from "./pages/ProfilePage"; // if you have one
 import ProtectedRoute from "./components/ProtectedRoute";
 import BottomNav from "./components/BottomNav";
 import "./styles/index.css";
@@ -58,19 +57,11 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <ProfilePage />
-            </ProtectedRoute>
-          }
-        />
 
         {/* Default Redirect */}
         <Route path="/" element={<Navigate to="/warehouse" replace />} />
 
-        {/* Catch-All → Go Home instead of warehouse */}
+        {/* Catch-All */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
