@@ -1,0 +1,119 @@
+.profile-container {
+  min-height: 100vh;
+  background-color: #f7f9fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-content {
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.profile-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.profile-avatar img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 0.8rem;
+}
+
+.profile-email {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.profile-info {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  background: #f4f6f8;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.edit-btn,
+.logout-btn,
+.save-btn,
+.cancel-btn {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.6rem;
+  transition: 0.3s ease;
+}
+
+.edit-btn {
+  background: #0d8abc;
+  color: white;
+}
+
+.logout-btn {
+  background: #e63946;
+  color: white;
+}
+
+.save-btn {
+  background: #0d8abc;
+  color: white;
+}
+
+.cancel-btn {
+  background: #ddd;
+  color: #333;
+}
+
+.edit-btn:hover,
+.logout-btn:hover,
+.save-btn:hover,
+.cancel-btn:hover {
+  opacity: 0.9;
+}
+
+.profile-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.profile-actions {
+  margin-top: 1rem;
+}
+
+/* Mobile-first design — looks perfect on phones */
+@media (min-width: 600px) {
+  .profile-card {
+    padding: 2rem;
+  }
+}
