@@ -6,21 +6,26 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import ProfilePage from "./pages/ProfilePage"; // if you have one
 import ProtectedRoute from "./components/ProtectedRoute";
 import BottomNav from "./components/BottomNav";
 import "./styles/index.css";
 
 function App() {
   const location = useLocation();
-  const hideBottomNav = ["/login", "/signup", "/forgot-password"].includes(location.pathname);
+  const hideBottomNav = ["/login", "/signup", "/forgot-password"].includes(
+    location.pathname
+  );
 
   return (
     <div className="app-container">
       <Routes>
+        {/* Public Routes */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
+        {/* Protected Routes */}
         <Route
           path="/warehouse"
           element={
@@ -53,11 +58,23 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
 
+        {/* Default Redirect */}
         <Route path="/" element={<Navigate to="/warehouse" replace />} />
-        <Route path="*" element={<Navigate to="/warehouse" replace />} />
+
+        {/* Catch-All → Go Home instead of warehouse */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
+      {/* Hide bottom nav on auth pages */}
       {!hideBottomNav && <BottomNav />}
     </div>
   );
